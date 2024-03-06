@@ -1,27 +1,48 @@
-# EventManagerFront
+## Documentation de l'Architecture de l'Application Angular Standalone
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.3.
+### Vue d'ensemble de l'Architecture
 
-## Development server
+Votre projet Angular Standalone est structuré de manière à séparer clairement les différentes préoccupations et fonctionnalités. Voici un aperçu des répertoires principaux et de leur rôle dans l'application :
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+1. **/app** : C'est le cœur de votre application Angular, contenant la majorité du code source.
 
-## Code scaffolding
+   - **/components** : Contient les composants réutilisables de l'application. Ces composants représentent des éléments d'interface utilisateur qui peuvent être partagés et réutilisés à travers différentes pages ou d'autres composants.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+   - **/core** : Inclut les services liés aux API et toute logique métier centralisée. Ce répertoire est idéal pour placer des services singleton, des gardes, des intercepteurs HTTP, et d'autres services globaux.
 
-## Build
+   - **/pages** : Contient les composants qui représentent des pages complètes de l'application. Chaque composant dans ce répertoire correspond généralement à une route dans l'application Angular.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+2. **/assets** : Contient les fichiers statiques comme les images, les feuilles de style globales, et d'autres ressources statiques nécessaires à l'application.
 
-## Running unit tests
+3. **/environments** : Fournit des fichiers de configuration spécifiques à l'environnement. Par exemple, vous pouvez avoir des configurations différentes pour les environnements de développement, de test et de production.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+4. **/types** : Utilisé pour définir des types TypeScript personnalisés ou des interfaces utilisées à travers l'application. Cela permet de renforcer la cohérence du typage et de faciliter la maintenance du code.
 
-## Running end-to-end tests
+### Exécution de l'Application
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+#### Prérequis
+- Node.js installé
+- Angular CLI installé
 
-## Further help
+#### Installation des Dépendances
+1. Ouvrez une invite de commandes ou un terminal.
+2. Naviguez jusqu'à la racine du projet Angular.
+3. Exécutez la commande suivante pour installer les dépendances nécessaires :
+   ```
+   npm install
+   ```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+#### Lancement de l'Application en Mode Développement
+1. Dans le même terminal, exécutez la commande suivante pour démarrer le serveur de développement Angular :
+   ```
+   ng serve
+   ```
+2. Ouvrez un navigateur web et accédez à `http://localhost:4200`. L'application Angular devrait maintenant être visible et fonctionnelle.
+
+#### Build pour la Production
+Pour construire l'application pour un déploiement en production :
+1. Exécutez la commande suivante :
+   ```
+   ng build --prod
+   ```
+2. Les fichiers de build seront créés dans le répertoire `/dist`. Ces fichiers peuvent être déployés sur un serveur web.
