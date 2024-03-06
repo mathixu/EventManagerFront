@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {EventService} from "../../core/event.service";
 import {DatePipe, NgForOf, NgIf} from "@angular/common";
 import {Event} from "../../../types/event";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-event-list-component',
@@ -9,7 +10,8 @@ import {Event} from "../../../types/event";
   imports: [
     DatePipe,
     NgForOf,
-    NgIf
+    NgIf,
+    RouterLink
   ],
   templateUrl: './event-list-component.component.html',
   styleUrl: './event-list-component.component.scss'

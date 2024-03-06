@@ -1,7 +1,6 @@
-import {Component, EventEmitter, OnInit, Output, Input} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule} from "@angular/forms";
 import {EventDto} from "../../../types/eventDto";
-import {Event} from "../../../types/event";
 import {NgForOf} from "@angular/common";
 import {RouterLink} from "@angular/router";
 
@@ -16,8 +15,7 @@ import {RouterLink} from "@angular/router";
   templateUrl: './event-creation-component.component.html',
   styleUrl: './event-creation-component.component.scss'
 })
-export class EventCreationComponentComponent implements OnInit {
-  @Input() initialEvent?: Event;
+export class EventCreationComponentComponent {
   @Output() eventSubmit = new EventEmitter<EventDto>();
 
   eventForm: FormGroup;
@@ -29,12 +27,6 @@ export class EventCreationComponentComponent implements OnInit {
       date: new FormControl(''),
       location: new FormControl('')
     });
-  }
-
-  ngOnInit(): void {
-    if (this.initialEvent) {
-      this.eventForm.patchValue(this.initialEvent);
-    }
   }
 
   onSubmit() {

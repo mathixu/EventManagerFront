@@ -1,0 +1,8 @@
+<div>
+  <a class="bg-gray-200" routerLink="/events"><- Retour à la liste des applications</a>
+
+  <p class="text-xl">Modifier l'évenement</p>
+
+  <app-event-creation-component (eventSubmit)="handleEditEvent($event)"/>
+  <p *ngFor="let error of apiErrors" class="text-sm text-red-500">{{error}}</p>
+</div>
