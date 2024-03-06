@@ -1,10 +1,10 @@
-<form [formGroup]="eventForm" (ngSubmit)="onSubmit()">
-  <input formControlName="title" placeholder="Title" type="text" id="title" name="title" required />
-  <input formControlName="date" type="datetime-local" id="date" name="date" required />
-  <input formControlName="description" placeholder="description" type="text" id="description" name="description" required />
-  <input formControlName="location" placeholder="Location" type="text" id="location" name="location" required />
+<form [formGroup]="eventForm" (ngSubmit)="onSubmit()" class="space-x-5">
+  <input class="p-2 bg-gray-50 rounded border border-black" formControlName="title" placeholder="Title" type="text" id="title" name="title" required />
+  <input class="p-2 bg-gray-50 rounded border border-black" formControlName="date" type="datetime-local" id="date" name="date" required />
+  <input class="p-2 bg-gray-50 rounded border border-black" formControlName="description" placeholder="description" type="text" id="description" name="description" required />
+  <input class="p-2 bg-gray-50 rounded border border-black" formControlName="location" placeholder="Location" type="text" id="location" name="location" required />
 
-  <button type="submit" class="bg-green-400 p-3 rounded">Submit</button>
+  <button type="submit" class="bg-green-400 hover:bg-green-500 p-2 rounded">Submit</button>
 </form>
 
 <p *ngFor="let error of validationErrors" class="text-sm text-red-500">{{error}}</p>

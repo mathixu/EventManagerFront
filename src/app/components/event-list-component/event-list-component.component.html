@@ -1,14 +1,16 @@
-<div *ngIf="events.length > 0; else noEvents">
-  <div *ngFor="let event of events" class="flex space-x-1.5" >
-    <a [routerLink]="'/events/edit/' + event.id" class="flex space-x-1.5">
-      <h2>{{ event.title }}</h2>
-      <p>{{ event.description }}</p>
-      <p>Date: {{ event.date | date: 'dd/MM/yyyy' }}</p>
-      <p>Location: {{ event.location }}</p>
-    </a>
-    <button class="bg-red-300" (click)="handleDelete(event)">Delete</button>
+<div>
+  <div *ngIf="events.length > 0; else noEvents">
+    <div *ngFor="let event of events" class="flex items-center p-2 bg-gray-200 justify-between hover:bg-gray-300 rounded">
+      <a [routerLink]="'/events/edit/' + event.id" class="flex space-x-5 w-full">
+        <h2><span class="font-medium">Titre:</span> {{ event.title }}</h2>
+        <p><span class="font-medium">Description:</span> {{ event.description }}</p>
+        <p><span class="font-medium">Date:</span> {{ event.date | date: 'dd/MM/yyyy' }}</p>
+        <p><span class="font-medium">Location:</span> {{ event.location }}</p>
+      </a>
+      <button class="bg-red-300 p-2 rounded hover:bg-red-400" (click)="handleDelete(event)">Delete</button>
+    </div>
   </div>
+  <ng-template #noEvents>
+    <p>Aucun événement disponible.</p>
+  </ng-template>
 </div>
-<ng-template #noEvents>
-  <p>Aucun événement disponible.</p>
-</ng-template>
