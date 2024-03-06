@@ -37,7 +37,7 @@ export class EventCreationComponentComponent {
 
   validationErrors: string[] = [];
 
-  private isValidEvent(event: EventDto): boolean {
+  isValidEvent(event: EventDto): boolean {
     this.validationErrors = [];
     if (!event.title) {
       this.validationErrors.push('Title is required');
