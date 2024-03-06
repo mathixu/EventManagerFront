@@ -28,4 +28,10 @@ export class EventListComponentComponent implements OnInit {
     });
   }
 
+  handleDelete(event: Event) {
+    this.eventService.deleteEvent(event.id).subscribe(() => {
+      this.events = this.events.filter(e => e.id !== event.id);
+    });
+  }
+
 }
